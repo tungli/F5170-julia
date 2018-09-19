@@ -79,6 +79,7 @@ Take a look at the `readdlm()` and `parse()` functions:
 ```
 Use it to import the data from `Discharges.txt`.
 To convert the type `String` into `Float64` use the `parse()` function.
+To convert the type `Any` into `Float64` use the `Float64()` function.
 
 ## Larmor radius
 What will be the trajectory of a charged partice with an initial velocity in homogeneous magnetic field?
