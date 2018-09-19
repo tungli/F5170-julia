@@ -17,7 +17,7 @@ You can select the backend for plots - call `pyplot()` or `gr()` after `using Pl
 
 Using this in Julia REPL (run the `julia` executable) can be helpful:
 ```julia
-?linspace
+?range
 ```
 
 Julia arrays are indexed from one:
