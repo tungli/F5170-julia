@@ -1,0 +1,9 @@
+ne[m-3] Te[K] discharge
+1e5 100 InterstellarPlasma
+1e12 1000 Ionosphere
+1e13 20000 TownsendDischarge
+1e15 10000 Flames
+1e14 1000000 SolarCorona
+1e17 100000 GlowDischarge
+1e20 10000  SolarAtmosphere
+1e24 1000000 ThermonuclearPlasma

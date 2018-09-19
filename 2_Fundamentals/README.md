@@ -32,6 +32,14 @@ There is an `end` keyword:
 println(a[2:end])
 println(a[1:(end-1)])
 ```
+To use matrix mutliplication you don't need special functions:
+```
+A = rand(3,3)
+a = [1,2,0]
+println(A*a)
+println(a'*A)
+```
+Vectors are columns and `'` is the transpose function.
 
 Functions in Julia are usually **not** written for vectors.
 It is better to write functions for single values, then use *broadcasting* to apply it to vector.
