@@ -5,6 +5,7 @@ Here are just a few things to get you started.
 
 To download a package use:
 ```julia
+using Pkg
 Pkg.add("Plots")
 ```
 to use it:
