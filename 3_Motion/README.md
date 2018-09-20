@@ -5,8 +5,7 @@ This sections covers exercises 3.1, 3.2, 3.3 and 3.1.a.
 
 The exercises want us to solve the equation of motion for a charged particle in a electromagnetic field.
 The equation of motion is a set of 3 (x,y,z) ordinary differential equations (ODE) of second order.
-To solve a system of ODEs, we usually transform the set of higher order equations to first order equations.
-We will create more variables by doing this but that's fine.
+To solve a system of ODEs, we usually transform the set of higher order equations to first order equations.  We will create more variables by doing this but that's fine.
 We express the first order derivatives as functions of variables and other first order derivatives.
 We can then create a function in Julia which for a given set of values of variables evaluates the derivatives.
 This is the function that a general ODE solver needs.
@@ -90,10 +89,13 @@ You can, for example, make a GIF to see the particle trajectory moving.
 Since the same equations and solvers apply here, let us jump to the implementation right away.
 
 ## Implementation
-The script is named `van_allen.py`.
-You can see that the implementation is basically the same as with the particle drift study.
+Take a look at the [scipt](https://github.com/tungli/F5170-julia/blob/master/3_Motion/van_allen.jl).
+You can see that the implementation is roughly the same as with the particle drift study.
 Some differences here are:
  - We assume electric field is zero
  - Earth's magnetic field can be approximated as if produced by a (huge) magnetic dipole.
+
+You will need to implement the `bfield()` function that calculates the magnetic field from the "Earth dipole" at a certain position and calculate the magnetic dipole moment.
+Good luck!
 
 
