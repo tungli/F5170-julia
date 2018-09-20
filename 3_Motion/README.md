@@ -23,7 +23,7 @@ If you are not comfortable with using a blackbox solver, this is the way for you
 
 ## Implementation
 Download the [motion.jl](https://github.com/tungli/F5170-julia/blob/master/3_Motion/motion.jl) file and run Julia REPL.
-Download the packages DifferentialEquations and Plots using the Julia package manager (``using Pkg`, then Pkg.add("Plots"),...).
+Download the packages DifferentialEquations and Plots using the Julia package manager (`using Pkg`, then `Pkg.add("Plots")`,...).
 Type `include("PATH TO motion.jl")`.
 
 We will be using the brilliant **DifferentialEquations.jl** package.
