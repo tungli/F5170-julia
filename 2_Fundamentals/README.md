@@ -1,6 +1,6 @@
 # Julia Basics
 
-Julia is very intuitive and you will find everything you will need and more in the official [documentation](https://docs.julialang.org/en/v1/)
+To learn Julia fast, I recommend [this tutorial](https://learnxinyminutes.com/docs/julia/), otherwise you can find everything you may need and more in the official [documentation](https://docs.julialang.org/en/v1/)
 Here are just a few things to get you started.
 
 To download a package use:
@@ -51,6 +51,16 @@ sin(a)
 a = [1,2,3]
 sin.(a)
 ```
+
+Functions are defined using the `function` and `end` keywords. 
+Here is a function that creates a `Vector`
+```julia
+function triangular_numbers(n::Number)
+    [ i*(i+1)/2 for i in 1:n ] #this is convenient syntax for creating vectors
+end
+```
+Julia returns the last thing in the function, although you can also use the `return` keyword.
+Notice that you can specify the type of the argument, in this case `Number`.
 
 Now try to do the exercises 2.1 and 2.2 from the MATLAB material.
 
