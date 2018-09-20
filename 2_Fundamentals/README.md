@@ -15,7 +15,7 @@ using Plots
 [Plots.jl](https://github.com/JuliaPlots/Plots.jl) offers a powerful plotting interface, although it is a bit slow to start. 
 You can select the backend for plots - call `pyplot()` or `gr()` after `using Plots` line.
 
-Using this in Julia REPL (run the `julia` executable) can be helpful:
+Using `?` in Julia REPL (run the `julia` executable) can be helpful:
 ```julia
 ?range
 ```
