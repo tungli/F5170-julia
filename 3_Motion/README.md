@@ -22,6 +22,10 @@ Another way is, for example, to use the *leapfrog* algorithm.
 If you are not comfortable with using a blackbox solver, this is the way for you. Try googling "Boris leapfrog" and implementing it in your code.
 
 ## Implementation
+Download the [motion.jl](https://github.com/tungli/F5170-julia/blob/master/3_Motion/motion.jl) file and run Julia REPL.
+Download the packages DifferentialEquations and Plots using the Julia package manager (``using Pkg`, then Pkg.add("Plots"),...).
+Type `include("PATH TO motion.jl")`.
+
 We will be using the brilliant **DifferentialEquations.jl** package.
 Take a look at the [tutorial](http://docs.juliadiffeq.org/latest/tutorials/ode_example.html#Defining-Parameterized-Functions-1).
 By following the same procedure we solve our problem. Let us look at it in parts:
@@ -68,7 +72,7 @@ This is fine, since DifferentialEquations.jl by default only solves for the nece
 ```julia
 plot(sol,vars=(1,2))
 ```
-This line is possible because of **Plots.jl** knows how to handle the sol object.
+This line is possible because of **Plots.jl** knows how to handle the `sol` object.
 Another way is shown below, where we extract the x,y,z vectors and plot those.
 ```julia
 t = range(tspan[1],length=1000,stop=tspan[2])
