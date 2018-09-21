@@ -12,7 +12,7 @@ end
 
 function bfield(r,M)
     @warn("This function calculates the magnetic field from a dipole `M` at position `r`.")
-    @error("This is the function you need to implement yourself... Julia will close now :P")
+    @error("This is the function you need to implement yourself... Julia will close now!")
     exit()
 end
 
