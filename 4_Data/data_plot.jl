@@ -17,7 +17,11 @@ for i in 1:3
         push!(x,a[1])
         push!(y,a[2])
     end
-    filter!(x->x!=0.0,y)
+
+    #Removal of x,y pair if y = 0
+    t = .!(iszero.(y))
+    x = x[t]
+    y = y[t]
 
     plot!(x,y,c=colors[i],label=filename,xlim=([0, 1e6]))
 end

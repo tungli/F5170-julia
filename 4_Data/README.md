@@ -113,12 +113,36 @@ for i in 1:3
         push!(x,a[1])
         push!(y,a[2])
     end
-    filter!(x->x!=0.0,y)
+    
+    #Removal of x,y pair if y = 0
+    t = .!(iszero.(y))
+    x = x[t]
+    y = y[t]
 
     plot!(x,y,c=colors[i],label=filename,xlim=([0, 1e6]))
 end
 Plots.gui()
 ```
+The first steps are same as in the "Simple Plot" case.
+In the *for*-loop, we define `filename` using a string and the iteration variable `i`.
+In Julia, the symbol `$()` places a variable into the string.
+Then we continue by opening the file (creating a stream variable `f`) and loading everything in an `Vector` of `String`s.
+We close the file stream since we have everything in the variable `data` now.
+To separate the first and the second column, we define empty arrays `x` and `y`.
+Then we loop over the data lines a push the values into the arrays.
+We use `parse` to convert `String`s into `Float`s.
+
+Another (shorter) option to load a data file is to use:
+```julia
+using DelimitedFiles
+
+data = readdlm("csk1.dat")
+x = data[:,1]
+y = data[:,2]
+```
+The `readdlm()` function does the split part as well as the conversion to floats.
+
+Then I added removal of value where `y` is zero so that you can do a log-plot without errors.
 
 ## Inverse matrix
 ```julia
