@@ -1,8 +1,57 @@
 # Data processing
-
 In this chapter, you will learn to use _*for*_-loops and _*if*_ statement blocks.
 
 You will understand how to do those just by going over the examples, so I will not go into detail here.
+
+The data files you will be working here (`csk[1-3].dat`) contain data for the cross sections of collision (in m<sup>2</sup>) of electrons with argon atom species for different temperatures (in Kelvins).
+In particular, `csk1.dat` contains the data for elastic collision:
+
+![coll](http://mathurl.com/ycnhzk89.png)
+
+`csk2.dat` for argon excitation:
+
+![exci](http://mathurl.com/ybd2s6ql.png)
+
+`csk3.dat` for argon ionization:
+
+![ioni](http://mathurl.com/ydyupuzm.png)
+
+The scripts referenced in the exercises are described in subsequent sections.
+
+## Exercises
+>  **Exercise 1**
+>  * Modify [this script](https://github.com/tungli/F5170-julia/blob/master/4_Data/simple_plot.jl) so that it plots:
+>  
+>  ![sinc](http://mathurl.com/y983ysyp.png)
+>  
+>  **Exercise 2**
+>  [This script](https://github.com/tungli/F5170-julia/blob/master/4_Data/data_plot.jl) takes the data in `csk[1-3].dat` and plots them.
+>  * Run the script with the data in the same directory
+>  * You can see that the magnitudes are too different and the plot is not very practical. Your task is to modify it so that:
+>    1. The electron energy is expressed in electronvolts (eV).
+>    2. The y-axis scale is logarithmic
+>  
+>  The logarithmic plot should look similar to this:
+>  ![Data](https://github.com/tungli/F5170-python/blob/master/4_Data/data_plot.svg)
+>  
+>  * Look at your plot -- what are the excitation and ionization thresholds?
+>  
+>  **Exercise 3**
+>  * Modify the script so that it converts the *x*-data from Kelvin to electronvolt and saves each cross-section to tab-delimited file named `csevN.dat` with `N` being the corresponding file number.
+>  
+>  **Exercise 4**
+>  * Find the function in Julia which calculates the inverse of a matrix. 
+>  * Define a [singular matrix](http://mathworld.wolfram.com/SingularMatrix.html) and try calculating its inverse. What happens?
+>  * Run [this script](https://github.com/tungli/F5170-julia/blob/master/4_Data/inverse_matrix.jl) and verify that it works correctly by testing it on various matrices.
+>  * Add another `elif` statement so that it displays a warning when the [matrix rank](http://mathworld.wolfram.com/MatrixRank.html) is greater than 10.
+>  
+>  **Advanced exercise**
+>  In this directory you will also find data files `adv_csk[1-3].dat`. Two of these files include electron temperature in electronvolts (eV) while one of them includes electron energy in Kelvin.
+>  * Modify the [script](https://github.com/tungli/F5170-python/blob/master/4_Data/data_plot.py) using *if-else* statements so that it decides which files should be converted and which not.
+>  * Such a script could be very useful when processing thousands of similar files. However, what are the limitations of your program?
+
+
+
 Let us take a look at the scrips you will need for the exercises.
 
 ## Simple plot
@@ -43,6 +92,33 @@ Maybe an interesting thing is to notice is `c=c` - while the first `c` is a defi
 After the for-loop we tell Julia it can show us the figure.
 
 ## Loading and plotting a matrix
+
+```julia
+using Plots
+pyplot()
+
+colors = [:red,:green,:blue,:magenta,:black,:yellow,:cyan]
+
+plot()
+for i in 1:3
+    filename = "csk$(i).dat"
+    f = open(filename)
+    data = readlines(filename)
+    close(f)
+
+    x = Vector{Float64}()
+    y = Vector{Float64}()
+    for i in data
+        a = parse.(Float64,split(i,'\t'))
+        push!(x,a[1])
+        push!(y,a[2])
+    end
+    filter!(x->x!=0.0,y)
+
+    plot!(x,y,c=colors[i],label=filename,xlim=([0, 1e6]))
+end
+Plots.gui()
+```
 
 ## Inverse matrix
 ```julia
