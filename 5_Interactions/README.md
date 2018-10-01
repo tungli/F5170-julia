@@ -11,7 +11,7 @@ To numerically integrate a function, you could just sum the functional values ev
 This corresponds to dividing the function into rectangles.
 This is called the midpoint rule. This is not optimal, because you would need a large number of intervals and, therefore, function evaluations to get a good accuracy.
 
-The trapeziodal rule is a simple improvement.
+The trapezoidal rule is a simple improvement.
 Instead of dividing into rectangles use trapezoids.
 
 I have not found a Julia package which implements the trapezoidal rule for numeric integration, so I have created my own function:
@@ -41,12 +41,12 @@ Now, you should apply numerical integration to Maxwell-Boltzmann distribution to
 
 ## Exercises
 >  **Exercise 1**
->  * Complete this [script](https://github.com/tungli/F5170-julia/blob/master/5_Interactions/maxwell.jl). The script should plot the Maxwell-Boltzmann distribution with repsect the velocity magnitude and a few points of interest, namely:
+>  * Complete this [script](https://github.com/tungli/F5170-julia/blob/master/5_Interactions/maxwell.jl). The script should plot the Maxwell-Boltzmann distribution with respect the velocity magnitude and a few points of interest, namely:
 >    1. The mean speed
 >    2. The mean squared speed (norm of the velocity vector)
 >    3. The most probable speed
 >  * Calculate these values analytically and numerically. Compare them and explain any differences.
->  * Look at the plot. Which of the 3 speeds is the lowest. Does their order change with temperature?
+>  * Plot the distributions and the values of distributions at the calculated speeds. Which of the 3 speeds is the lowest. Does their order change with temperature?
 >  * Change the number of points of integration. How does it affect the result of the integration?
 >  
 >  **Exercise 2**
@@ -89,13 +89,13 @@ scatter!([v_sq_mean],[Fv(v_sq_mean)])
 
 ## Time evolution of a distribution function
 In the previous section you analyzed the distribution function of velocity magnitude.
-In this section you will be using 3 distribution functions for 3 Cartesian components of the velocity vector and you will look at a simple time evolution of a system described by distrubtion functions.
+In this section you will be using 3 distribution functions for 3 Cartesian components of the velocity vector and you will look at a simple time evolution of a system described by distribution functions.
 
 Our simple model is based on the [Boltzmann transport equation](https://en.wikipedia.org/wiki/Boltzmann_equation)
 
 ![boltzmannEq](http://mathurl.com/y9qsxtzt.png)
 
-We will assume homogenity in spatial coordinates, zero external force and for the collision term we will assume the following form ([Krook](https://en.wikipedia.org/wiki/Bhatnagar%E2%80%93Gross%E2%80%93Krook_operator)):
+We will assume homogeneity in spatial coordinates, zero external force and for the collision term we will assume the following form ([Krook](https://en.wikipedia.org/wiki/Bhatnagar%E2%80%93Gross%E2%80%93Krook_operator)):
 
 ![krook](http://mathurl.com/y77eakb6.png)
 
@@ -112,7 +112,7 @@ Our kinetic equation therefore simplifies greatly, in fact, it can be integrated
 >  Answer the following questions:
 >  * What is the physical meaning of the initial condition for the distribution function?
 >  * What kind of particles could the distribution functions describe?
->  * The collision frequency is *5e8* Hz, which is a resonable value. What is the time necessary for reaching the equilibrium?
+>  * The collision frequency is *5e8* Hz, which is a reasonable value. What is the time necessary for reaching the equilibrium?
 >  * Try increasing and decreasing the collision frequency in the script. What happens with the time necessary for reaching equilibrium and why?
   
 
@@ -173,7 +173,7 @@ Rate constants are calculated from collisional cross sections *σ* of a reaction
 
 Cross sections of most reactions do not have functional representations - they are available only as tabulated data.
 
-You will find the data you need in this directory, here are the [cross sections](https://github.com/tungli/F5170-python/blob/master/5_Interactions/sigmaion.dat) to interpolate.
+You will find the data you need in this directory, here are the [cross sections](https://github.com/tungli/F5170-julia/blob/master/5_Interactions/sigmaion.dat) to interpolate.
 The first column of the data are speeds in m/s, the second column are the cross sections in m<sup>2</sup>.
 The cross section are those of argon ionization by electron impact:
 
@@ -182,7 +182,7 @@ The cross section are those of argon ionization by electron impact:
 
 >  ## Exercises
 >  **Exercise 5**
->  * Run this [scipt](https://github.com/tungli/F5170-julia/blob/master/5_Interactions/interpol_rates.jl). It calculates the rate constant from the cross section data using two different distribution function - a Maxwell-Boltzmann and a nearly monoenergetic distribution (delta function approximated by a Gaussian function). You will notice that the mean velocity is the same for both distributions but the rate constants differ. Provide an explanation.
+>  * Run this [script](https://github.com/tungli/F5170-julia/blob/master/5_Interactions/interpol_rates.jl). It calculates the rate constant from the cross section data using two different distribution function - a Maxwell-Boltzmann and a nearly mono-energetic distribution (delta function approximated by a Gaussian function). You will notice that the mean velocity is the same for both distributions but the rate constants differ. Provide an explanation.
 >  
 >  **Exercise 6**
 >  * Modify the script so that it plots cross section as function of speed.
@@ -193,22 +193,22 @@ The cross section are those of argon ionization by electron impact:
 >  **Exercise 7**
 >  * Run the script for several electron temperatures.
 >  * What happens with the rate coefficients with increasing electron temperature?
->  * Is there electron temperature for which the rate coefficient for the nearly monoenergetic beam exceeds the Maxwell-Boltzmann coefficient? Provide an explanation why this is/is not possible
+>  * Is there electron temperature for which the rate coefficient for the nearly mono-energetic beam exceeds the Maxwell-Boltzmann coefficient? Provide an explanation why this is/is not possible
 >  
 >  **Advanced Exercise**
->  * Rewrite the scipt so that it uses electron energy rather than electron speed. Using electron energy is more common in plasma physics.
+>  * Rewrite the script so that it uses electron energy rather than electron speed. Using electron energy is more common in plasma physics.
   
 
 **(Potentially) Important Note:**
-I have decided on using the [Dierckx.jl](https://github.com/kbarbary/Dierckx.jl) package in favour of [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl).
-At the time I was writing this, the package available _**by using `Pkg.add()`**_ was still for older version of Julia.
+I have decided on using the [Dierckx.jl](https://github.com/kbarbary/Dierckx.jl) package in favor of [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl).
+At the time I was writing this, the package available **by using `Pkg.add()` was still for older version of Julia**.
 Nevertheless, on github the version was corrected, therefore you can just clone [the repository](https://github.com/kbarbary/Dierckx.jl) by using:
 ```julia
 #Pkg.rm("Dierckx")
 Pkg.add("https://github.com/kbarbary/Dierckx.jl")
 #Pkg.resolve()
 ```
-Hopefully this will work. Contact me if it does not or use a different interpolation method.
+Hopefully this will work. Contact me if it does not work or use a different interpolation method if you can.
 
 ```julia
 using Dierckx
@@ -242,7 +242,7 @@ cr_sec = Spline1D(x,y,k=3,bc="zero")
 @show kr_beam = trapz(v.*gaussian.(v,vmean,vmean/100).*cr_sec.(v),x=v)
 ```
 
-The scipt involves importing some packages, getting the data from a file, interpolating and integrating some functions.
+The script involves importing some packages, getting the data from a file, interpolating and integrating some functions.
 
 The interpolation takes place in this line:
 ```julia
