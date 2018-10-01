@@ -3,7 +3,7 @@ In this chapter, you will learn to use _*for*_-loops and _*if*_ statement blocks
 
 You will understand how to do those just by going over the examples, so I will not go into detail here.
 
-The data files you will be working here (`csk[1-3].dat`) contain data for the cross sections of collision (in m<sup>2</sup>) of electrons with argon atom species for different temperatures (in Kelvins).
+The data files you will be working here (`csk[1-3].dat`) contain data for the cross sections of collision (in m<sup>2</sup>) of electrons with argon atom species for different temperatures (in Kelvin).
 In particular, `csk1.dat` contains the data for elastic collision:
 
 ![coll](http://mathurl.com/ycnhzk89.png)
@@ -162,7 +162,7 @@ function myinv(mat::Matrix)
 end
 ```
 We created a more sophisticated version of matrix inversion.
-It notifies us when the matrix is not square or when its determinant is zero and in these cases, it does not try to call the matrix inversion funcion.
+It notifies us when the matrix is not square or when its determinant is zero and in these cases, it does not try to call the matrix inversion function.
 Couple of things to notice:
  * `size()` returns a `Tuple` (an object similar to `Array`) with the array's size.
  * `if`,`elseif` are followed by a condition. A condition has a value of `true` or `false`.
