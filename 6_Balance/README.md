@@ -123,7 +123,7 @@ end
 This is the first derivatives function.
 The functions for the rate constants are missing, you will need to implement them, as well as the right-hand sides for the derivatives.
 
-``julia
+```julia
 prob = ODEProblem(odefun!,initial,tspan,Vector{Float64}())
 sol = solve(prob)
 ```
