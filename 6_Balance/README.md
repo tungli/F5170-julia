@@ -33,7 +33,7 @@ If you have two reactions:
 
 and the second reaction is faster (more probable), then we may write this as:
 
-[!threebody](http://mathurl.com/yadrlr8h.png)
+![threebody](http://mathurl.com/yadrlr8h.png)
 
 
 ## Exercises
