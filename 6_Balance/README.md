@@ -25,16 +25,6 @@ This may look scary, so here is an example with one-way reactions (like the ones
 
 ![ex](http://mathurl.com/ycv8c7w5.png)
 
-**Note**:
-A reaction with 3 reactants does not necessarily represent a three-body collision.
-If you have two reactions:
-
-![twobody](http://mathurl.com/yaecpw9l.png)
-
-and the second reaction is faster (more probable), then we may write this as:
-
-![threebody](http://mathurl.com/yadrlr8h.png)
-
 
 ## Exercises
 >  **Exercise 1**
