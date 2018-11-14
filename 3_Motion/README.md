@@ -84,7 +84,7 @@ tspan = (0.0,10.0)
 prob = ODEProblem(derivs!,y0,tspan,p)
 ```
 Here, we define the problem as DifferentialEquations.jl needs it.
-The first three values of the state vector `y0` are the positions (x,y,z), the other three are the velocities.
+The first three values of the state vector `y0` are the positions (*x,y,z*), the other three are the velocities.
 In the parameter vector `p` we have the charge, the mass of the particle and then two the two field vectors.
 `tspan` is a `Tuple` with the initial time and final time.
 Finally, `prob` is the object that encapsulates the entire mathematical problem.
