@@ -113,7 +113,7 @@ function odefun!(dy,y,params,t)
     k10 = f_k10(Te,Tg)
     k11 = f_k11(Te,Tg)
 
-    dy[1] = k1*ne*nAr - k2*ne*nArs - k4*ne*nArs + k6*ne*nAr2p - 2*k10*nArs^2 + k11*nArs*nAr
+    dy[1] = k1*ne*nAr - k2*ne*nArs - k4*ne*nArs + k6*ne*nAr2p - 2*k10*nArs^2 - k11*nArs*nAr
     dy[2] = 1.0
     dy[3] = 1.0
     dy[4] = 1.0
