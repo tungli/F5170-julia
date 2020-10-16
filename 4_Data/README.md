@@ -47,7 +47,7 @@ The scripts referenced in the exercises are described in subsequent sections.
 >  
 >  **Advanced exercise**
 >  In this directory you will also find data files `adv_csk[1-3].dat`. Two of these files include electron temperature in electronvolts (eV) while one of them includes electron energy in Kelvin.
->  * Modify the [script](https://github.com/tungli/F5170-python/blob/master/4_Data/data_plot.py) using *if-else* statements so that it decides which files should be converted and which not.
+>  * Modify the [script](../4_Data/data_plot.jl) using *if-else* statements so that it decides which files should be converted and which not.
 >  * Such a script could be very useful when processing thousands of similar files. However, what are the limitations of your program?
 
 
