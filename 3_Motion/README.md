@@ -24,7 +24,7 @@ If you are not comfortable with using a black-box solver, this is the way for yo
 ## Exercises
 
 >  **Exercise 1**
->  * Run the [script](https://github.com/tungli/F5170-python/blob/master/3_Motion/motion.py).  
+>  * Run the [script](../3_Motion//motion.jl).  
 >  * Configure the velocity, position and fields as you want.  
 >  * Configure the mass and charge to that of an electron.  
 >  * What kind of drift do you observe?  
